@@ -53,4 +53,4 @@ gen_metrics_response(Registry, Request) ->
                                   standalone => false}),
 
   Headers = prometheus_cowboy:to_cowboy_headers(RespHeaders),
-  cowboy_req:reply(Code, Headers, Body, Request).
+  cowboy_req:reply(Code, maps:from_list(Headers), Body, Request).
